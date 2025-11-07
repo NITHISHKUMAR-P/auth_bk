@@ -1,6 +1,6 @@
 # Database Details
 ## User Table:
-<img width="1546" height="156" alt="image" src="https://github.com/user-attachments/assets/864294bc-fc27-4b55-8322-a1c7d3d6bbc5" />
+![image](https://github.com/user-attachments/assets/864294bc-fc27-4b55-8322-a1c7d3d6bbc5)
 ```sql 
 CREATE TABLE users (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -18,7 +18,7 @@ Initially failed attempt will be zero after wrong password, failed_attempt will 
 After 3 failures we set locked_until = now + 5 minutes.
 On successful login we reset failed_attempts = 0 + clear lock.
 # Roles Table:
-<img width="322" height="202" alt="image" src="https://github.com/user-attachments/assets/91b73f9a-3391-4bf8-b7d1-f8cf705d9c74" />
+![image](https://github.com/user-attachments/assets/91b73f9a-3391-4bf8-b7d1-f8cf705d9c74)
 ```java
 @ElementCollection(fetch = FetchType.EAGER)
 @Enumerated(EnumType.STRING)
@@ -37,7 +37,7 @@ CREATE TABLE user_roles (
 In userDetailService, authorities = ["ROLE_USER", "ROLE_ADMIN"] is matched with .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
 ## Audit Table:
-<img width="815" height="446" alt="image" src="https://github.com/user-attachments/assets/b81b9000-e319-47af-9908-a708dd4ff31c" />
+(https://github.com/user-attachments/assets/b81b9000-e319-47af-9908-a708dd4ff31c)
 ```sql
 CREATE TABLE audit_logs (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
