@@ -57,7 +57,7 @@ public class AuthService {
       String token = jwtService.generateToken(username, claims);
       auditService.log(user.getId(), user.getUsername(), AuditLog.Action.LOGIN_SUCCESS, IpUtils.clientIp(req));
 
-      long expiresInSeconds = 60L * 60L * 2L; // 120m default
+      long expiresInSeconds = 60L * 60L * 2L; 
       return new AuthResponse(token, "Bearer", expiresInSeconds);
 
     } catch (AuthenticationException ex) {
@@ -70,6 +70,6 @@ public class AuthService {
   public void logout(String username, HttpServletRequest req) {
     userRepo.findByUsername(username).ifPresent(u ->
         auditService.log(u.getId(), u.getUsername(), AuditLog.Action.LOGOUT, IpUtils.clientIp(req)));
-    // Stateless JWT: audit only. Add blacklist if you need forced invalidation.
+   
   }
 }
