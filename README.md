@@ -37,7 +37,7 @@ CREATE TABLE user_roles (
 In userDetailService, authorities = ["ROLE_USER", "ROLE_ADMIN"] is matched with .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
 ## Audit Table:
-(https://github.com/user-attachments/assets/b81b9000-e319-47af-9908-a708dd4ff31c)
+![image](https://github.com/user-attachments/assets/b81b9000-e319-47af-9908-a708dd4ff31c)
 ```sql
 CREATE TABLE audit_logs (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
