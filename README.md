@@ -1,7 +1,7 @@
 # Database Details
 ## User Table:
 <img width="1546" height="156" alt="image" src="https://github.com/user-attachments/assets/864294bc-fc27-4b55-8322-a1c7d3d6bbc5" />
-```sql
+```sql 
 CREATE TABLE users (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(255) UNIQUE NOT NULL,
