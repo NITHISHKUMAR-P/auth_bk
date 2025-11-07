@@ -1,7 +1,7 @@
 # Database Details
 ## User Table:
 <img width="1546" height="156" alt="image" src="https://github.com/user-attachments/assets/864294bc-fc27-4b55-8322-a1c7d3d6bbc5" />
-```sql
+'''sql
 CREATE TABLE users (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(255) UNIQUE NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE users (
   created_at DATETIME,
   updated_at DATETIME
 );
-```
+'''
 Initially failed attempt will be zero after wrong password, failed_attempt will increment by 1,
 After 3 failures we set locked_until = now + 5 minutes.
 On successful login we reset failed_attempts = 0 + clear lock.
