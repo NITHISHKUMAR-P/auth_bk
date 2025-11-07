@@ -5,10 +5,14 @@ import com.auth_login.login.service.AuthService;
 import com.auth_login.login.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -29,8 +33,14 @@ public class AuthController {
   }
 
   @PostMapping("/login")
-  public ResponseEntity<AuthResponse> login(@Valid @RequestBody AuthRequest req, HttpServletRequest http) {
-    return ResponseEntity.ok(authService.login(req.username(), req.password(), http));
+  public ResponseEntity<?> login(@Valid @RequestBody AuthRequest req, HttpServletRequest http) {
+    try {
+      return ResponseEntity.ok(authService.login(req.username(), req.password(), http));
+    } catch (ResponseStatusException ex) {
+      return ResponseEntity
+          .status(ex.getStatusCode())
+          .body(Map.of("message", ex.getReason() != null ? ex.getReason() : "error"));
+    }
   }
 
   @PostMapping("/logout")
